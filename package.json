@@ -16,7 +16,7 @@
   , "devDependencies": {
     }
   , "scripts": {
-      "start": "node server/app.js"
+      "start": "sh start.sh"
     }
   , "main": "app"
   , "engines": { "node": ">= 0.4.0" }
