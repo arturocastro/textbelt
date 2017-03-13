@@ -110,7 +110,7 @@ app.post('/intl', function(req, res) {
 
 function textRequestHandler(req, res, number, carrier, region, key) {
   var ip = req.connection.remoteAddress;
-  if (!ip || ip === '127.0.0.1') {
+  if (!ip || ip === '127.0.0.1' || ip === process.argv[2]) {
     ip = req.header('X-Real-IP');
   }
   if (req.header('CF-Connecting-IP')) {
@@ -257,7 +257,7 @@ function stripPhone(phone) {
 }
 
 // Start server
-var port = process.env.PORT || 9090;
-app.listen(port, function() {
+var port = process.env.PORT || 8080;
+app.listen(port, process.argv[2], function() {
   console.log('Listening on', port);
 });
